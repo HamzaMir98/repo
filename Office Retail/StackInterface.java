@@ -1,11 +1,21 @@
+
+
+
+
 /** Interface for a generic Stack data structure
  * 
- * @author Professor Kartchner 
+ * @author Professor Kartchner
  *
  * @param <T> data type
  */
 public interface StackInterface<T> {
 
+	/**
+	 * Provide two constructors
+	 * 1. takes in an int as the size of the stack
+	 * 2. default constructor - uses default as the size of the stack
+	 */
+	
 	/**
 	 * Determines if Stack is empty
 	 * @return true if Stack is empty, false if not
@@ -42,6 +52,6 @@ public interface StackInterface<T> {
 	 * Returns the elements of the Stack in an array, [0] is top of Stack, [1] is next in Stack, etc.
 	 * @return an array of the Objects in the Stack
 	 */
-	public Object[] toArray();
+	public T[] toArray();
  
 }
