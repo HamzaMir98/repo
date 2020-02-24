@@ -1,71 +1,43 @@
+
+import static org.junit.Assert.*;
+
 import java.util.NoSuchElementException;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 /**
-* The VolunteerLine class holds the relevant information to simulate adding volunteers to a queue, and removing them.  
-* @author Hamza Mir
-*/
-public class VolunteerLine implements VolunteerLineInterface {
-	
-	private MyQueue<Volunteer> node = new MyQueue<Volunteer>();
-	
-	/**
-	 * adds a new Volunteer to the volunteer line Queue
-	 * @param v A Volunteer object
-	 * @return true if volunteer is queued successfully , false if queue is full
-	 */
-	public boolean addNewVoluneer(Volunteer v)
-	{
-		if(node.size() < 5)
-		{
-			node.enqueue(v);
-			
-			return true;
-			
-		}
-		else{
-			return false;	
-		}
+ * 
+ * @author revised by Professor Kartchner
+ *
+ */
+public class VolunteerLine_GFA_Test {
+
+	VolunteerLine aVolunteerLine;
+	Volunteer v1;
+
+	@Before
+	public void setUp() throws Exception {
+		aVolunteerLine = new VolunteerLine(5);
+		v1 = new Volunteer("vol1");
 	}
 
-	/**
-	 * removes volunteer from the volunteer queue line
-	 * @return Volunteer Object
-	 * @throws NoSuchElementException if queue is empty
-	 */
-	public Volunteer volunteerTurn() throws NoSuchElementException {
-		
-		if(node.isEmpty() == true)
-		{
-			throw new NoSuchElementException();
-		}
-		else
-		{
-			
-			return node.dequeue();
-		}
+	@After
+	public void tearDown() throws Exception {
+		aVolunteerLine = null;
+		v1 = null;
 	}
 
-	/**
-	 * checks if there are volunteers in line 
-	 * @return true if volunteer line is empty, false otherwise
-	 */
-	public boolean volunteerLineEmpty() {
-		if(node.isEmpty() == true)
-		{
-			return true;
-		}
-		else{
-			return false;	
+	@Test
+	public void testAddNewVolunteer() {
+
+		try {
+			assertTrue(aVolunteerLine.addNewVolunteer(v1));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			assertTrue("This should not have thrown an exception", false);
 		}
 	}
-
-	/**
-	 * Returns an array of the Volunteers in the queue
-	 * @return an array of the volunteers in the queue
-	 */
-	public Object[] toArrayVolunteer() {
-
-		return node.toArray();
-	}
-
 }
+
