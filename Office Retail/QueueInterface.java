@@ -5,6 +5,11 @@
  * @param <T> data type
  */
 public interface QueueInterface<T> {
+	/** provide two constructors 
+	 * 1. takes an int as the size of the queue
+	 * 2. default constructor - uses a default as the size of the queue
+	 * 
+	 */
 
 	/**
 	 * Determines if Queue is empty
@@ -12,6 +17,12 @@ public interface QueueInterface<T> {
 	 */
 	public boolean isEmpty();
 
+	/**
+	 * Determines of the Queue is empty
+	 * @return
+	 */
+	public boolean isFull();
+	
 	/**
 	 * Deletes and returns the element at the front of the Queue
 	 * @return the element at the front of the Queue
@@ -35,6 +46,9 @@ public interface QueueInterface<T> {
 	 * Returns the elements of the Queue in an array, [0] is front of Queue, [1] is next in Queue, etc.
 	 * @return an array of the Object elements in the Queue
 	 */
-	public Object[] toArray();
+	 
+	public T[] toArray();
+	
+ 
 
 }
